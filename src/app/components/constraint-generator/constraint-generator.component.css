@@ -1,0 +1,40 @@
+/* Example styles for your Material UI */
+
+.constraint-card {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.upload-field {
+  margin: 1rem 0;
+}
+
+.btn-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mat-card {
+  width: 800px;
+  margin: 2rem auto;
+  min-height: 400px;
+}
+

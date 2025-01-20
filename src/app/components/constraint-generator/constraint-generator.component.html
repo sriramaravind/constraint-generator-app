@@ -1,0 +1,75 @@
+<!-- constraint-generator.component.html -->
+<mat-card class="constraint-card" style="width: 1000px; margin: 2rem auto; min-height: 600px;">
+  <mat-card-title>Constraint Generator</mat-card-title>
+  <mat-card-content>
+
+    <!-- Constraint Message -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Constraint Message</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize 
+        cdkAutosizeMinRows="6"
+        cdkAutosizeMaxRows="20"  
+        [(ngModel)]="constraintMessage"
+        placeholder="Enter or paste the constraint message here">
+      </textarea>
+    </mat-form-field>
+
+    <!-- JSON Upload -->
+    <div class="upload-field">
+      <label><strong>Upload JSON File</strong></label>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept=".json"
+      />
+    </div>
+
+    <!-- Generate Button + Spinner -->
+    <div class="btn-row">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="generateConstraint()"
+        [disabled]="loading"
+      >
+        <mat-icon *ngIf="!loading">build</mat-icon>
+        <mat-icon *ngIf="loading" class="spin">autorenew</mat-icon>
+        <span *ngIf="!loading">Generate Constraint</span>
+        <span *ngIf="loading">Generating...</span>
+      </button>
+
+      <!-- Optional: Material spinner (if you like) -->
+      <mat-progress-spinner
+        *ngIf="loading"
+        mode="indeterminate"
+        diameter="24"
+        strokeWidth="4">
+      </mat-progress-spinner>
+    </div>
+
+    <!-- Generated Constraint -->
+    <mat-form-field appearance="fill" class="full-width mt-3">
+      <mat-label>Generated Constraint</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize            
+        cdkAutosizeMinRows="6"
+        cdkAutosizeMaxRows="20"       
+        readonly
+        [value]="generatedConstraint">
+      </textarea>
+    </mat-form-field>
+
+    <!-- Copy Button -->
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="copyConstraint()"
+      [disabled]="!generatedConstraint">
+      <mat-icon>content_copy</mat-icon>
+      Copy Constraint
+    </button>
+  </mat-card-content>
+</mat-card>
