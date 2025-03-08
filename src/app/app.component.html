@@ -1,2 +1,88 @@
-<!-- app.component.html -->
-<app-constraint-generator></app-constraint-generator>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-toolbar class="sidenav-header">
+      <span>Menu</span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <!-- Home Menu Item -->
+      <mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon mat-list-icon>apps</mat-icon>
+        <span>Apps</span>
+      </mat-list-item>
+
+      <!-- OCA Section with Expansion -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>settings</mat-icon>
+            <span>OCA</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- Single Constraint Generator -->
+        <mat-list-item routerLink="/oca/constraint-generator" routerLinkActive="active">
+          <mat-icon mat-list-icon>code</mat-icon>
+          <span>Single Constraint</span>
+        </mat-list-item>
+
+        <!-- Multi Constraint Generator -->
+        <mat-list-item routerLink="/oca/multi-constraint-generator" routerLinkActive="active">
+          <mat-icon mat-list-icon>aspect_ratio</mat-icon>
+          <span>Multi Constraint</span>
+        </mat-list-item>
+
+        <!-- JSON Generator -->
+        <mat-list-item routerLink="/oca/JSON-generator" routerLinkActive="active">
+          <mat-icon mat-list-icon>build</mat-icon>
+          <span>JSON Generator</span>
+        </mat-list-item>
+
+          <!-- Default Product -->
+          <mat-list-item routerLink="oca/default-product" routerLinkActive="active">
+            <mat-icon mat-list-icon>autorenew</mat-icon>
+            <span>Default Product</span>
+          </mat-list-item>
+
+          <!-- Default Product -->
+          <mat-list-item routerLink="oca/ucid-search" routerLinkActive="active">
+            <mat-icon mat-list-icon>autorenew</mat-icon>
+            <span>AI Search</span>
+          </mat-list-item>          
+
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="main-content">
+    <mat-toolbar class="top-toolbar">
+      <!-- Sidebar Toggle Button -->
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <!-- Page Title -->
+      <span class="page-title">{{ pageTitle }}</span>
+
+      <!-- Search Bar (Centered) 
+      <div class="search-container">
+        <mat-form-field appearance="outline" class="search-bar">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput placeholder="Search..." [(ngModel)]="searchQuery">
+        </mat-form-field>
+      </div> -->
+
+      <!-- Profile Icon (Right-Aligned) -->
+      <button mat-icon-button class="profile-button">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Routed Views (Main Content) -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

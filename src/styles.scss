@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+
+// Instead of "@angular/material/color", we just use mat.* functions below:
+
+$black-87: rgba(#000000, 0.87);
+$white-100: rgba(#ffffff, 1);
+
+$my-teal: (
+  50:  #e0f2f1,
+  100: #b2dfdb,
+  200: #80cbc4,
+  300: #4db6ac,
+  400: #26a69a,
+  500: #00b388, // (0,179,136)
+  600: #00877a,
+  700: #00796b,
+  800: #00695c,
+  900: #004d40,
+  A100: #a7ffeb,
+  A200: #64ffda,
+  A400: #1de9b6,
+  A700: #00bfa5,
+
+  contrast: (
+    50:  $black-87,
+    100: $black-87,
+    200: $black-87,
+    300: $black-87,
+    400: $black-87,
+    500: $white-100,
+    600: $white-100,
+    700: $white-100,
+    800: $white-100,
+    900: $white-100,
+    A100: $black-87,
+    A200: $black-87,
+    A400: $black-87,
+    A700: $black-87
+  )
+);
+
+// Create a palette using mat.define-palette
+$my-primary-palette: mat.define-palette($my-teal, 500);
+$my-accent-palette:  mat.define-palette(mat.$pink-palette, 'A200');
+$my-warn-palette:    mat.define-palette(mat.$red-palette);
+
+// Now define a light theme
+$my-light-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary-palette,
+    accent:  $my-accent-palette,
+    warn:    $my-warn-palette
+  )
+));
+
+// Finally, apply it to all Material components:
+@include mat.all-component-themes($my-light-theme);
+
+// (Optional) global body styling
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}

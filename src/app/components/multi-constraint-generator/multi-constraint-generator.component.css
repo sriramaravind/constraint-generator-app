@@ -1,0 +1,119 @@
+/* Specific fix for the Custom Rule Numbers input field */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Force the label to have enough width */
+.mat-form-field-label-wrapper {
+  width: auto !important;
+  min-width: 300px !important;
+  white-space: nowrap !important;
+}
+
+.mat-form-field-label {
+  white-space: nowrap !important;
+  text-overflow: clip !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Ensure the input container is wide enough */
+.mat-form-field-flex {
+  width: 100%;
+  min-width: 300px;
+}
+
+.mat-form-field-infix {
+  width: 100% !important;
+  min-width: 300px !important;
+}
+
+/* Make sure the placeholder text is also fully visible */
+.mat-input-element::placeholder {
+  white-space: nowrap;
+}
+
+/* Rest of your styles remain the same */
+.constraint-card {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.upload-field {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 6px;
+  border: 1px dashed #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.rule-selection {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  margin: 1.25rem 0;
+}
+
+/* Ensure the input field takes full width */
+.full-width {
+  width: 100% !important;
+  max-width: 600px; /* Adjust as needed */
+  min-width: 400px;
+}
+
+/* Fix Material Form Field Wrapping */
+::ng-deep .mat-form-field {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 100% !important;
+  overflow: visible !important; 
+  text-overflow: ellipsis;
+}
+
+/* Token Usage Section */
+.token-usage-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title Styling */
+.token-usage-container h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Token Usage List */
+.token-usage-container p {
+  font-size: 16px;
+  color: #555;
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Last Item should not have a border */
+.token-usage-container p:last-child {
+  border-bottom: none;
+}
+

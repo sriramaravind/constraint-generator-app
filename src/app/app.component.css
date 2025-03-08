@@ -1,0 +1,173 @@
+/* Full height for the sidenav container */
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Sidebar styles */
+.sidenav {
+  width: 280px; /* Wider sidebar for better readability */
+  background: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Header */
+.sidenav-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 16px;
+}
+
+/* Expansion panel spacing */
+mat-expansion-panel {
+  background: #ffffff !important;
+  border-radius: 5px;
+  margin-top: 8px;
+  box-shadow: none;
+  border: 1px solid #ddd;
+}
+
+mat-panel-title {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+mat-panel-title mat-icon {
+  margin-right: 8px;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* Top Toolbar */
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* Page Title Styling */
+.page-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Sidebar menu list alignment */
+mat-nav-list {
+  padding: 0;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 16px;
+  transition: background 0.3s ease;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+/* Active Menu Item */
+mat-list-item.active {
+  background-color: #e1e1e1;
+}
+
+/* Sidebar Icons */
+mat-icon {
+  margin-right: 16px;
+}
+
+/* Content padding */
+.content {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar alignment fixes */
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* Search Bar Centering */
+.search-container {
+  flex-grow: 1;  /* Allows it to expand */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  background-color: white; /* Ensure white background */
+  border-radius: 5px;
+}
+
+/* Profile Button Alignment */
+.profile-button {
+  margin-left: auto;
+}
+
+/* Adjust Material Design Search Bar */
+.search-bar mat-form-field {
+  width: 100%;
+}
+
+.search-bar mat-icon {
+  color: #666;
+}
+
+/* Ensure toolbar is flex and well spaced */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: #008567;
+  color: white;  
+  align-items: center;
+  padding: 0 16px; 
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .search-container {
+    flex: 0 1 400px; /* Adjust width while keeping it centered */
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Search Input Styling */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Profile Button (Right-Aligned) */
+.profile-button {
+  margin-left: 16px;
+}
+
+  .page-title {
+    flex: 1;
+    text-align: center; /* Center title for small screens */
+  }
+}

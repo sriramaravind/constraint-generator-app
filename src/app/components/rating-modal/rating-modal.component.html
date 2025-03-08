@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Rate the Generated Constraints</h2>
+<mat-dialog-content>
+  <p>Please rate the accuracy of the generated constraints:</p>
+
+  <div class="rating">
+    <span *ngFor="let star of [1, 2, 3, 4, 5]" color="primary" (click)="setRating(star)">
+      <mat-icon [style.color]="star <= userRating ? '#008567' : '#2ad2c9'">star</mat-icon>
+    </span>
+  </div>
+
+  <!-- Show additional fields **only if rating is below 5** -->
+  <div *ngIf="userRating > 0 && userRating < 5">
+    <mat-form-field class="full-width">
+      <mat-label>Menu Name</mat-label>
+      <input matInput [(ngModel)]="menuName">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Revision Number</mat-label>
+      <input matInput type="number" [(ngModel)]="revisionNumber">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Rule Number</mat-label>
+      <input matInput type="number" [(ngModel)]="ruleNumber">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Comments</mat-label>
+      <textarea matInput [(ngModel)]="userComment"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button  mat-raised-button color="primary" (click)="submitFeedback()">Submit</button>
+</mat-dialog-actions>

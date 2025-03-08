@@ -1,0 +1,143 @@
+<div class="enterprise-container">
+  <mat-card class="enterprise-card">
+    <mat-card-title class="enterprise-title">Menu to JSON Converter</mat-card-title>
+    <mat-card-content>
+
+      <!-- File Upload -->
+      <div class="form-field file-upload">
+        <label class="custom-label">Upload JSON File</label>
+        <div class="file-upload-box">
+          <button mat-raised-button color="primary" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon> Choose File
+          </button>
+          <input type="file" id="fileInput" #fileInput (change)="onFileSelect($event)" hidden />
+          <span class="file-info">{{ fileName || 'No file chosen' }}</span>
+        </div>
+      </div>
+
+<!-- Row for Enter Sheet Name & Product Line -->
+<div class="form-row">
+  <!-- Enter Sheet Name -->
+  <mat-form-field appearance="fill" class="form-field half-width">
+    <mat-label>Enter Sheet Name</mat-label>
+    <input matInput [(ngModel)]="sheetName" placeholder="Sheet Name">
+  </mat-form-field>
+
+  <!-- Product Line Dropdown -->
+  <mat-form-field appearance="fill" class="form-field half-width">
+    <mat-label>Product Line</mat-label>
+    <mat-select [(value)]="selectedOption">
+      <mat-option *ngFor="let option of menuOptions" [value]="option.label">
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- PRODUCTEX File Path (Below the row) -->
+<div class="form-group">
+  <mat-form-field appearance="fill" class="form-field wide-input">
+    <mat-label>Enter PRODUCTEX File Path</mat-label>
+    <input matInput [(ngModel)]="pathName" placeholder="File Path">
+  </mat-form-field>
+</div>
+
+
+        
+
+      <!-- Process Button -->
+      <div class="button-container">
+        <button mat-raised-button color="primary" class="action-button" (click)="processFile()">
+          <mat-icon>hourglass_full</mat-icon> Process
+        </button>
+      </div>
+
+      <!-- Extracted Data -->
+      <div *ngIf="editableData" class="form-field extracted-data">
+        <h3>Extracted Data</h3>
+
+        <!-- Read-Only View -->
+        <div *ngIf="!isEditMode" class="read-only-mode">
+          <div class="scrollable-container">
+            <ul>
+              <li *ngFor="let item of paginatedData">{{ item }}</li>
+            </ul>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-controls" *ngIf="totalPages > 1">
+            <button mat-icon-button (click)="prevPage()" [disabled]="currentPage === 0">
+              <mat-icon>chevron_left</mat-icon>
+            </button>
+            <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+            <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages - 1">
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+
+          <!-- Edit Button -->
+          <button mat-icon-button color="primary" (click)="enableEditMode()">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
+        <!-- Editable View -->
+        <div *ngIf="isEditMode" class="edit-mode">
+          <mat-form-field appearance="fill" class="full-width">
+            <textarea matInput [(ngModel)]="editableData" rows="10" placeholder="Editable Data"></textarea>
+          </mat-form-field>
+          <div class="actions">
+            <button mat-raised-button color="primary" (click)="saveData()">Save</button>
+            <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Tracker -->
+      <div class="progress-tracker" *ngIf="step1Status || step2Processes.length">
+        <h3>Process Status</h3>
+
+        <!-- Step 1 -->
+        <div class="step">
+          <mat-icon class="icon" [ngClass]="{
+            inProgress: step1Status === 'inProgress',
+            completed: step1Status === 'completed',
+            error: step1Status === 'error'
+          }">
+            {{
+            step1Status === 'completed'
+            ? 'check_circle'
+            : step1Status === 'error'
+            ? 'error'
+            : 'hourglass_empty'
+            }}
+          </mat-icon>
+          <span class="name">Data Extraction</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div *ngFor="let process of step2Processes" class="step">
+          <mat-icon class="icon" [ngClass]="{
+            inProgress: process.status === 'inProgress',
+            completed: process.status === 'completed',
+            error: process.status === 'error'
+          }">
+            {{
+              process.status === 'completed' ? 'check_circle' :
+              process.status === 'error' ? 'error' : 'hourglass_empty'
+            }}
+          </mat-icon>
+          <span class="name">
+            {{ process.name }} 
+            <span *ngIf="process.timeTaken !== undefined"> ({{ process.timeTaken.toFixed(2) }} sec)</span>
+          </span>
+        </div>              
+      </div>
+
+      <button *ngIf="isDownloadReady" mat-raised-button color="primary" (click)="downloadJson()">
+        <mat-icon>file_download</mat-icon> Download JSON
+      </button>      
+      
+    </mat-card-content>
+  </mat-card>
+</div>

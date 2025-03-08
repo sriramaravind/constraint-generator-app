@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>UCID Search</h2>
+    
+    <!-- UCID List -->
+    <div class="ucid-list">
+      <h4>Available UCIDs:</h4>
+      <ul>
+        <li *ngFor="let ucid of ucidList">{{ ucid }}</li>
+      </ul>
+    </div>
+  
+    <!-- Search Input -->
+    <div class="search-bar">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Enter search query..." 
+        class="search-input" />
+      <button (click)="searchUCID()" class="search-button">Search</button>
+    </div>
+  
+    <!-- Loading Indicator -->
+    <div *ngIf="loading" class="loading">Searching...</div>
+  
+    <!-- Filtered UCIDs -->
+    <div class="results" *ngIf="filteredUcids.length">
+      <h4>Filtered UCIDs:</h4>
+      <ul>
+        <li *ngFor="let ucid of filteredUcids">{{ ucid }}</li>
+      </ul>
+    </div>
+  
+    <!-- Explanation Box -->
+<!-- Explanation Box -->
+<!-- Explanation Box -->
+<div *ngIf="explanation" class="explanation-box">
+    <h4>Reason for Filtering:</h4>
+    <p [innerHTML]="explanation"></p>
+  </div>
+  
+  
+  </div>

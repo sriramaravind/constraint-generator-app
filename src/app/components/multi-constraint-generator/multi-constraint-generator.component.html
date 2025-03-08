@@ -1,0 +1,90 @@
+<!-- multi-constraint-generator.component.html -->
+<mat-card class="constraint-card">
+  <mat-card-title> Please enter the rule number and upload the JSON file </mat-card-title>
+  <mat-card-content>
+
+    <!-- JSON Upload -->
+    <div class="upload-field" style="display: flex; align-items: center; gap: 10px;">
+      <label style="color: rgb(0, 92, 185); font-weight: bold;">Upload JSON File</label>
+      <button mat-raised-button color="primary" (click)="jsonFileInput.click()">
+        <mat-icon>upload</mat-icon> Choose File
+      </button>
+      <input #jsonFileInput type="file" (change)="onFileSelected($event)" accept=".json" style="display: none;" />
+      <span style="font-size: 14px; color: #555;">{{ selectedFileName || 'No file chosen...' }}</span>
+    </div>
+
+    <!-- Rule Selection UI -->
+    <div class="rule-selection" style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+      <mat-radio-group [(ngModel)]="ruleSelectionMode">
+        <mat-radio-button color="primary" value="range">Select Range</mat-radio-button>
+        <mat-radio-button color="primary" value="custom">Enter Specific Rules</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div *ngIf="ruleSelectionMode === 'range'" class="rule-selection"
+      style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;">
+      <mat-form-field class="half-width">
+        <mat-label>Start Rule Number</mat-label>
+        <input matInput type="number" [(ngModel)]="startRuleNo">
+      </mat-form-field>
+
+      <mat-form-field class="half-width">
+        <mat-label>End Rule Number</mat-label>
+        <input matInput type="number" [(ngModel)]="endRuleNo">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="ruleSelectionMode === 'custom'" class="rule-selection" style="margin-top: 10px;">
+      <mat-form-field class="full-width">
+        <mat-label>Custom Rule Numbers (comma-separated)</mat-label>
+        <input matInput [(ngModel)]="customRuleInput" placeholder="e.g., 11,34,35,312,45,76,89,90">
+      </mat-form-field>
+    </div>
+
+    <!-- Batch Size Display (Read-Only) -->
+    <mat-form-field class="full-width" style="margin-top: 10px;">
+      <mat-label>Batch Size</mat-label>
+      <input matInput [value]="batchSize" disabled>
+    </mat-form-field>
+
+    <!-- Generate Button + Progress Indicator -->
+    <div class="btn-row" style="display: flex; justify-content: center; margin-top: 20px;">
+      <button mat-raised-button color="primary" (click)="generateConstraints()" [disabled]="loading">
+        <mat-icon *ngIf="!loading">build</mat-icon>
+        <mat-icon *ngIf="loading" class="spin">autorenew</mat-icon>
+        <span *ngIf="!loading">Generate Constraints</span>
+        <span *ngIf="loading">Processing...</span>
+      </button>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div *ngIf="loading" style="display: flex; justify-content: center; align-items: center; margin-top: 15px;">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p style="margin-left: 10px; font-size: 14px; color: #555;">Processing... Please wait.</p>
+    </div>
+
+    <!-- Progress Bar for Batch Processing -->
+    <div class="progress-container" style="margin-top: 15px;">
+      <mat-progress-bar *ngIf="loading" mode="determinate" [value]="progressValue"></mat-progress-bar>
+      <p *ngIf="loading" style="text-align: center; font-size: 14px; margin-top: 5px;">
+        Processing Batch {{ currentBatch }} of {{ totalBatches }}...
+      </p>
+    </div>
+
+    <!-- Download Button -->
+    <div class="btn-row" style="display: flex; justify-content: center; margin-top: 20px;">
+      <button *ngIf="downloadReady" mat-raised-button color="primary" (click)="downloadFile()">
+        <mat-icon>download</mat-icon> Download Constraints
+      </button>
+    </div>
+    <div *ngIf="tokensReady" class="token-usage-container">
+      <h3>Token Usage</h3>
+      <p><strong>🔹 Avg Input Tokens per Batch</strong> {{ averageInputTokensPerBatch   }}</p>
+      <p><strong>🔹 Avg Output Tokens per Batch:</strong> {{ averageOutputTokensPerBatch   }}</p>         
+      <p><strong>🔹 Total Input Tokens:</strong> {{ totalPromptTokens }}</p>
+      <!-- <p><strong>🔹 Total Output Tokens:</strong> {{ totalCompletionTokens }}</p>
+      <p><strong>🔹 Total Tokens Used:</strong> {{ totalTokensUsed }}</p> -->
+    </div>
+    
+  </mat-card-content>
+</mat-card>

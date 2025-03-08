@@ -1,0 +1,238 @@
+/* Enterprise Container */
+.enterprise-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f4f7fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styling */
+.enterprise-card {
+  padding: 24px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Title */
+.enterprise-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Fields */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.file-upload-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px dashed #ccc;
+}
+
+.file-info {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.action-button {
+  width: 240px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eef5ff;
+  border-radius: 6px;
+}
+
+.progress-tracker .step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-tracker .step .icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #ccc;
+}
+
+.progress-tracker .step .icon.in-progress {
+  color: #007bff;
+}
+
+.progress-tracker .step .icon.completed {
+  color: #28a745;
+}
+
+.progress-tracker .step .icon.error {
+  color: #dc3545;
+}
+
+/* Increase the input field width */
+.wide-input {
+  width: 100% !important;  /* Ensures full width usage */
+  max-width: 700px !important; /* Adjust as needed */
+}
+
+/* Ensure the input text field inside the mat-form-field is wide */
+.wide-input .mat-form-field-infix {
+  width: 100% !important;
+  min-width: 500px !important; /* Adjust as needed */
+}
+
+/* Ensures the placeholder text is fully visible */
+.wide-input input {
+  width: 100% !important;
+}
+
+/* Ensures uniform spacing between form fields */
+.form-group {
+  margin-bottom: 20px; /* Space between fields */
+}
+
+/* Apply a consistent border & background similar to Upload JSON */
+.uniform-field {
+  width: 100%;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0; /* Subtle border */
+}
+
+/* Increase width for PRODUCTEX File Path */
+.wide-input {
+  max-width: 700px !important; /* Adjust width as needed */
+}
+
+/* Ensure input fields inside the form-fields take up full width */
+.uniform-field .mat-form-field-infix {
+  width: 100%;
+}
+
+/* Ensure dropdown matches the input fields */
+.uniform-field .mat-select-trigger {
+  width: 100%;
+}
+
+/* Improve label positioning for better visibility */
+.uniform-field .mat-form-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Add hover effect for better UX */
+.uniform-field:hover {
+  border-color: #0056b3;
+  transition: 0.3s ease-in-out;
+}
+
+
+/* Ensures uniform spacing between form fields */
+.form-group {
+  margin-bottom: 20px; /* Space between fields */
+}
+
+/* Apply a consistent border & background similar to Upload JSON */
+.uniform-field {
+  width: 100%;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0; /* Subtle border */
+}
+
+/* Increase width for PRODUCTEX File Path */
+.wide-input {
+  max-width: 700px !important; /* Adjust width as needed */
+}
+
+/* Ensure input fields inside the form-fields take up full width */
+.uniform-field .mat-form-field-infix {
+  width: 100%;
+}
+
+/* Ensure dropdown matches the input fields */
+.uniform-field .mat-select-trigger {
+  width: 100%;
+}
+
+/* Improve label positioning for better visibility */
+.uniform-field .mat-form-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Add hover effect for better UX */
+.uniform-field:hover {
+  border-color: #0056b3;
+  transition: 0.3s ease-in-out;
+}
+
+/* Align Sheet Name & Product Line in one row */
+.form-row {
+  display: flex;
+  gap: 20px; /* Space between fields */
+  justify-content: space-between;
+}
+
+/* Each field takes half the width */
+.half-width {
+  flex: 1; /* Equal width for both fields */
+  min-width: 250px;
+}
+
+/* Ensure PRODUCTEX file path field is wider */
+.wide-input {
+  width: 100%;
+  max-width: 700px; /* Adjust as needed */
+}
+
+/* Styling similar to JSON upload for consistency */
+.form-field {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Mat Form Field consistency */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Improve label visibility */
+.mat-form-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Ensure input fields take full width inside material design */
+.mat-form-field-infix {
+  width: 100%;
+}

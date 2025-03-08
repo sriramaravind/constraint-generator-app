@@ -1,0 +1,16 @@
+class TestClass extends Root {
+	subsystem testSubsystem {
+		constraint rule42 {
+    message: "If 256GB DIMM is selected, then Performance Heatsink or Closed Loop Liquid cooling or DLC Module must be selected.";
+    body: if thisInst.selected(ProliantMemoryArray).filter(x => split(x.id, "#").get(0) <= "P73447-B21").count > 0
+        then thisInst.selected(HeatSinkKit).filter(x => split(x.id, "#").get(0) <= "P74787-B21 P74800-B21 P74208-B21").count > 0;
+}
+
+constraint rule43 {
+    message: "If NS204i-u is selected, then Performance Heatsink or Closed Loop Liquid cooling or DLC Module must be selected.";
+    body: if thisInst.selected(OSBootDevice).filter(x => split(x.id, "#").get(0) <= "P72197-B21").count > 0
+        then thisInst.selected(HeatSinkKit).filter(x => split(x.id, "#").get(0) <= "P74787-B21 P74800-B21 P74208-B21").count > 0;
+}
+
+	}
+}

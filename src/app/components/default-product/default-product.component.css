@@ -1,0 +1,134 @@
+/* Container Styling */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Center Headings */
+h2, h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Form Fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+button {
+  margin-top: 10px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mat-header-cell, .mat-cell {
+  text-align: center;
+}
+
+.mat-icon-button {
+  margin-left: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .component-row {
+    flex-direction: column;
+  }
+}
+
+
+/* ✅ Container Styling */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Centered Headings */
+h2, h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* ✅ Form Fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* ✅ Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Table Header */
+th {
+  background: #1976d2;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ✅ Table Cells */
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ✅ Buttons */
+button {
+  margin-top: 10px;
+}
+
+/* ✅ Delete Button */
+.mat-icon-button {
+  color: red;
+  margin-left: 5px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .component-row {
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
